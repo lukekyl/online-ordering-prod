@@ -9,10 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cart_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Carts',
+          key: 'id',
+          as: 'cart_id',
+        }
       },
       product_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Products',
+          key: 'id',
+          as: 'product_id',
+        }
       },
       createdAt: {
         allowNull: false,
