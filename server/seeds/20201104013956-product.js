@@ -19,7 +19,7 @@ module.exports = {
       products.push({
         name: fake.lorem.words(),
         category: categories[getRandomInt(3)],
-        description: fake.lorem.sentences(),
+        description: fake.lorem.sentence(),
         price: fake.commerce.price(),
         image_url: fake.image.food(),
         createdAt: new Date(),
