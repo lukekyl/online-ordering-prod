@@ -1,24 +1,36 @@
 'use strict';
 
+const { fake } = require("faker");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+
+    let products = []
+    let categories = {
+      0: 'Starters',
+      1: 'Entrees',
+      2: 'Deserts',
+    }
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    for(let i=0; i<-10;i++){
+      products.push({
+        name: fake.lorem.words(),
+        category: categories[getRandomInt(3)],
+        description: fake.lorem.sentences(),
+        price: fake.commerce.price(),
+        image_url: fake.image.food(),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      })
+    }
+    await queryInterface.bulkInsert('Products', products, {});
+
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('Products', null, {});
   }
 };
