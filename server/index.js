@@ -3,12 +3,17 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 
+const users = require(`./routes/userRoutes`)
+
 
 const app = express();
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
+
+app.use(routes);
+app.listen(process.env.API_PORT);
 
 app.get('/api/greeting', (req, res) => {
     const name = req.query.name || 'World';
