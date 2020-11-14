@@ -1,7 +1,7 @@
 {
   "name": "online-ordering-production",
   "version": "0.1.0",
-  "private": true,
+  "private": true, 
   "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "dev": "run-p server start"
+    "dev": "nodemon --exec babel-node ./server/index.js"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {

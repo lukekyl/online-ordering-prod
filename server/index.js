@@ -1,4 +1,4 @@
-import config from 'dotenv';
+require('dotenv').config();
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -33,11 +33,3 @@ app.get('/api/greeting', (req, res) => {
 });
 
 export default app;
-
-// const express = require('express');
-// const routes = require('./routes/userRoutes');
-// const Parser = require('body-parser');
-// const app = express();
-// app.use(Parser.urlencoded({extended:true}));
-// app.use(routes);
-// app.listen(process.env.API_PORT);
