@@ -1,14 +1,10 @@
 require('dotenv').config();
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import pino from 'express-pino-logger'
+const express = require('express');
+const cors = require('cors')
+const bodyParser = require('body-parser');
+const pino = require('express-pino-logger')
 
-import userRoutes from './routes/userRoutes'
-
-
-
-config.config();
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -31,5 +27,3 @@ app.get('/api/greeting', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
-
-export default app;
