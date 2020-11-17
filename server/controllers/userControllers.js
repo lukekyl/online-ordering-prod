@@ -15,3 +15,12 @@ exports.newUser = (req, res, next) =>{
         req.status(500).send("An error occured");
     });
 }
+
+exports.getUsers = (req, res, next) => {
+    model.User.findAll().then (result => {
+        res.status(200).send(result);
+    }).catch(error=>{
+        console.log(error)
+        req.status(500).send(error)
+    })
+}
