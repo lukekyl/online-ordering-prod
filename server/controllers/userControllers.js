@@ -24,3 +24,15 @@ exports.getUsers = (req, res, next) => {
         req.status(500).send(error)
     })
 }
+
+exports.getUser = (req, res, next) => {
+    const { id } = req.params;
+    model.User.findOne({
+        where: { id: Number(id) }
+    }).then(result=>{
+        res.status(200).send(result);
+    }).catch(error=>{
+        console.log(error)
+        req.status(500).send(error)
+    })
+}
