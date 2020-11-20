@@ -2,8 +2,7 @@
 const fake = require('faker');
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-
+  up: (queryInterface, Sequelize) => {
     let users = []
     for(let i=0; i<-10;i++){
       users.push({
@@ -14,11 +13,10 @@ module.exports = {
         updatedAt: new Date()
       })
     }
-    await queryInterface.bulkInsert('Users', users, {});
-
+    return queryInterface.bulkInsert('Users', users, {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Users', null, {});
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };

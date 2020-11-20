@@ -1,9 +1,7 @@
 'use strict';
 
-const { fake } = require("faker");
-
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) => {
 
     let carts = []
     for(let i=0; i<-10;i++){
@@ -13,10 +11,10 @@ module.exports = {
       })
     }
 
-    await queryInterface.bulkInsert('Carts', carts, {});
+    return queryInterface.bulkInsert('Carts', carts, {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Carts', null, {});
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('Carts', null, {});
   }
 };
