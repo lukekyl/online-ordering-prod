@@ -1,6 +1,5 @@
 'use strict';
-
-const fake = require("faker");
+const fake = require('faker');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -20,7 +19,7 @@ module.exports = {
         updatedAt: new Date()
       })
     }
-    return queryInterface.bulkInsert('Cart_products',posts, {});
+    return queryInterface.bulkInsert('Cart_products', posts, {});
 
   },
 

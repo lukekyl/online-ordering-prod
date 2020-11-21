@@ -1,6 +1,5 @@
 'use strict';
-
-const fake = require("faker");
+const fake = require('faker');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
