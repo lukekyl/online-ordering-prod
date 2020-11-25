@@ -4,6 +4,8 @@ import './styles/index.css';
 import Index from './pages/index.js';
 import * as serviceWorker from './serviceWorker';
 
+// Dinero will be money display converter, add to App component
+
 ReactDOM.render(
   <React.StrictMode>
     <Index />
