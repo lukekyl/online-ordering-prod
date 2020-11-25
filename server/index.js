@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 
 app.use(userRoutes);
+app.use(productRoutes);
 app.use(cartRoutes);
 
 const port = process.env.DB_PORT;
