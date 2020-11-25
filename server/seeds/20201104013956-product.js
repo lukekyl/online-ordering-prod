@@ -10,6 +10,7 @@ module.exports = {
       1: 'Entrees',
       2: 'Deserts',
     }
+
     function getRandomInt(max) {
       return Math.floor(Math.random() * Math.floor(max));
     }
@@ -19,7 +20,7 @@ module.exports = {
         name: fake.lorem.words(),
         category: categories[getRandomInt(3)],
         description: fake.lorem.sentence(),
-        price: fake.commerce.price(),
+        price: fake.random.number({min: 1, max: 5000}),
         image_url: fake.image.food(),
         createdAt: new Date(),
         updatedAt: new Date()
