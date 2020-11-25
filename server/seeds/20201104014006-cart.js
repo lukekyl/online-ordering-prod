@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
     let carts = []
-    for(let i=0; i<-10;i++){
+    for(let i=0; i<=10;i++){
       carts.push({
         createdAt: new Date(),
         updatedAt: new Date()

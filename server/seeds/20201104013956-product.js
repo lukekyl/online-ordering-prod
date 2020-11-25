@@ -14,7 +14,7 @@ module.exports = {
       return Math.floor(Math.random() * Math.floor(max));
     }
 
-    for(let i=0; i<-10;i++){
+    for(let i=0; i<=10;i++){
       products.push({
         name: fake.lorem.words(),
         category: categories[getRandomInt(3)],

@@ -4,7 +4,8 @@ const fake = require('faker');
 module.exports = {
   up: (queryInterface, Sequelize) => {
     let users = []
-    for(let i=0; i<-10;i++){
+    for (let i=0;i<=10;i++) {
+
       users.push({
         name: fake.name.firstName(),
         username: fake.internet.userName(),
@@ -12,6 +13,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       })
+      // console.log(fake.name.firstName())
     }
     return queryInterface.bulkInsert('Users', users, {});
   },
