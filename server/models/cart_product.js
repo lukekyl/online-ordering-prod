@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Cart_product.belongsTo(models.Cart, {
-        foreignKey: 'cart_id',
-        onDelete: 'CASCADE'
-      })
-      Cart_product.belongsTo(models.Product, {
-        foreignKey: 'product_id',
-        onDelete: 'CASCADE'
-      })
+      // Cart_product.belongsTo(models.Cart, {
+      //   foreignKey: 'cart_id',
+      //   onDelete: 'CASCADE'
+      // })
+      // Cart_product.belongsTo(models.Product, {
+      //   foreignKey: 'product_id',
+      //   onDelete: 'CASCADE'
+      // })
     }
   };
   Cart_product.init({

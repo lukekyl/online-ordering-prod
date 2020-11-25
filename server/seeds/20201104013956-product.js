@@ -2,7 +2,7 @@
 const fake = require('faker');
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
 
     let products = []
     let categories = {
@@ -15,7 +15,7 @@ module.exports = {
       return Math.floor(Math.random() * Math.floor(max));
     }
 
-    for(let i=0; i<=10;i++){
+    for(let i=0; i<10;i++){
       products.push({
         name: fake.lorem.words(),
         category: categories[getRandomInt(3)],
@@ -26,11 +26,11 @@ module.exports = {
         updatedAt: new Date()
       })
     }
-    return queryInterface.bulkInsert('Products', products, {});
-
+    // console.log(products)
+    await queryInterface.bulkInsert('Products', products, {});
   },
 
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Products', null, {});
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Products', null, {});
   }
 };
