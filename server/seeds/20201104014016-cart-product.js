@@ -1,23 +1,25 @@
 'use strict';
 const fake = require('faker');
+const model = require('../models');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
 
-    let products = await queryInterface.sequelize.query(
-        `SELECT id from Products;`
-      );
+    let products = await model.Product.findAll({
+      attributes: ['id']
+    });
       console.log(products)
-    let carts = await queryInterface.sequelize.query(
-        `SELECT id from Carts;`
-      );
+    let carts = await model.Cart.findAll({
+      attributes: ['id']
+    });
+
       console.log(carts)
     let cart_products = []
     for(let i=0; i<10;i++){
       cart_products.push({
-        product_id:fake.random.arrayElement(products[0]).id,
-        cart_id: fake.random.arrayElement(carts[0]).id,
+        product_id:fake.random.arrayElement(products).id,
+        cart_id: fake.random.arrayElement(carts).id,
         createdAt: new Date(),
         updatedAt: new Date()
       })
