@@ -9,31 +9,33 @@ const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const cart_productRoutes = require('./routes/cart_productRoutes');
 
-const app = express();
+const server = express();
 
-// app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(pino);
+// server.use(cors())
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(pino);
 
-app.use(userRoutes);
-app.use(productRoutes);
-app.use(cartRoutes);
-app.use(cart_productRoutes);
+server.use(userRoutes);
+server.use(productRoutes);
+server.use(cartRoutes);
+server.use(cart_productRoutes);
 
 const port = process.env.DB_PORT;
 
-app.listen(port, () =>
+server.listen(port, () =>
     console.log(`Express server is running on localhost:${port}`)
 );
 
-app.get('/api/greeting', (req, res) => {
+server.get('/api/greeting', (req, res) => {
     const name = req.query.name || 'World';
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 
-app.get('*', (req, res) => res.status(200).send({
+server.get('*', (req, res) => res.status(200).send({
   message: 'Welcome to this API.',
 }));
     
 });
+
+module.exports = server;
