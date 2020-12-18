@@ -4,9 +4,10 @@ module.exports = {
 "no-console": 0,
 "no-param-reassign": [2, {"props": false}],
 "prefer-destructuring": 0,
-"treatUndefinedAsUnspecified": true,
+"treatUndefinedAsUnspecified": 0,
 "arrow-body-style": 0,
 "comma-dangle": 0,
+"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 },
 "env": {
 "commonjs": true,

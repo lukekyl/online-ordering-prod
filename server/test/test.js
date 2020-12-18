@@ -6,7 +6,7 @@ const fake = require('faker');
 describe('User Endpoints', () => {
   it('should create a new user', async () => {
     const res = await request(app)
-      .post('/api/user')
+      .post('/user')
       .send({
         name: fake.name.firstName(),
         username: fake.internet.userName(),
