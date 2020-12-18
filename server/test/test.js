@@ -9,11 +9,19 @@ describe('User Endpoints', () => {
     res.json({ message: "pass!" });
   });
 
-  it("gets the user endpoint", async done => {
-    const response = await request.get("/user");
-    expect(response.status).toBe(200);
-    expect(response.body.message).toBe("pass!");
-    done();
+  // it("gets the user endpoint", async done => {
+  //   const response = await request.get("/user");
+  //   expect(response.status).toBe(200);
+  //   expect(response.body.message).toBe("pass!");
+  //   done();
+  // });
+
+   it('gets the user endpoint', async () => {
+    const res = await request
+      .get('/user')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      // .expect('pass!')
   });
 
   // it('should create a new user', async () => {
