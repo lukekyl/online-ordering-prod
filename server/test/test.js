@@ -16,12 +16,13 @@ describe('User Endpoints', () => {
   //   done();
   // });
 
+
    it('gets the user endpoint', async () => {
     const res = await request
       .get('/user')
       .expect('Content-Type', /json/)
       .expect(200)
-      // .expect('pass!')
+      .expect('pass!')
   });
 
   // it('should create a new user', async () => {
