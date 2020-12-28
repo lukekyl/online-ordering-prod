@@ -3,20 +3,19 @@ import PropTypes from "prop-types"
 
 import '../styles/layout.css';
 
+import Header from './header';
+import Footer from './footer';
+
 const Layout = ({ children }) => {
 
     return (
         <>
         <div className="App">
-            <header className="App-header">
-            <h2>Online Ordering App</h2>
-            </header>
-            <main>
+            <Header />
+            <main className="App-body">
                 {children}
             </main>
-            <footer>
-            Footer
-            </footer>
+            <Footer />
         </div>
         </>
     );
