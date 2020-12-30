@@ -16,6 +16,11 @@ server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(pino);
 
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 server.use(userRoutes);
 server.use(productRoutes);
 server.use(cartRoutes);
@@ -32,9 +37,9 @@ server.get('/api/greeting', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 
-server.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to this API.',
-}));
+// server.get('*', (req, res) => res.status(200).send({
+//   message: 'Welcome to this API.',
+// }));
     
 });
 

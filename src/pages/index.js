@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Layout from '../components/layout';
 import '../styles/index.css';
 
+import Menu from '../components/menu';
+
 class Index extends Component {
 
   constructor(props) {
@@ -40,6 +42,7 @@ class Index extends Component {
         <button type="submit">Submit</button>
       </form>
       <p>{this.state.greeting}</p>
+      {/* <Menu /> */}
     </Layout>
   );
   }
