@@ -22,6 +22,7 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
 }) 
 
+
 // server.use(function(req, res, next) {
 //       var allowedOrigins = ['http://localhost:3001'];
 //       var origin = req.headers.origin;
