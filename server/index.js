@@ -17,18 +17,23 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(pino);
 
 // Cors access
+
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+}) 
+
+// server.use(function(req, res, next) {
+//       var allowedOrigins = ['http://localhost:3001'];
+//       var origin = req.headers.origin;
+//       if(allowedOrigins.indexOf(origin) > -1){
+//           //  res.setHeader('Access-Control-Allow-Origin', origin);
+//       }
+//       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//       res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//       res.header('Access-Control-Allow-Credentials', true);
+//       return next();
+// });
 // server.use(cors())
-server.use(function(req, res, next) {
-      var allowedOrigins = ['http://localhost:3001'];
-      var origin = req.headers.origin;
-      if(allowedOrigins.indexOf(origin) > -1){
-           res.setHeader('Access-Control-Allow-Origin', origin);
-      }
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-      res.header('Access-Control-Allow-Credentials', true);
-      return next();
-});
 
 server.use(userRoutes);
 server.use(productRoutes);
