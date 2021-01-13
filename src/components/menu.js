@@ -20,7 +20,14 @@ const Menu = () => {
             return products
         })
 
-    const state = useState(new Promise(fetchMenu));
+    const state = useState(fetchMenu);
+
+    const printNames = (props) => {
+        props.value.forEach(n => {
+                console.log(n.name)
+                // return <p>{n.name}</p>
+            })
+    }
 
     // console.log(state)
     if (state.promised) {
@@ -37,6 +44,7 @@ const Menu = () => {
     return (
         <>
             <p key=''>Loaded {resourcePath}</p>
+            {printNames(state)}
         </>
     );
 }
