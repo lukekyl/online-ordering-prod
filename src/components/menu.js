@@ -23,9 +23,9 @@ const Menu = () => {
     const state = useState(fetchMenu);
 
     const printNames = (props) => {
-        props.value.forEach(n => {
+        return props.value.map(n => {
                 console.log(n.name)
-                // return <p>{n.name}</p>
+                return <p key={n.id} id={n.id}>{n.name}</p>
             })
     }
 
@@ -43,8 +43,8 @@ const Menu = () => {
 
     return (
         <>
-            <p key=''>Loaded {resourcePath}</p>
-            {printNames(state)}
+            <p>Loaded {resourcePath}</p>
+            <div className="Menu">{printNames(state)}</div>
         </>
     );
 }
