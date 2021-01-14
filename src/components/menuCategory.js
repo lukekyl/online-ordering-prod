@@ -1,13 +1,19 @@
 import React from "react"
 import Product from './menuProduct'
 
+import { createState, useState } from '@hookstate/core';
+
 const Category = (props) => {
-// If called, there is at least one product in this category. 
-// Iterate through all products in selected category and create a product card for each.
-    let n = props.product
+// Takes products from fetch,
+// Creates new category or adds product to existing and prints product card.
+    let product = props.product
+    
+    let state = useState(props)
+    console.log(state)
+    
     return (
         <>
-            <p key={n.id} id={n.id}>{n.name}</p>
+            <p key={product.id} id={product.id}>{product.name}</p>
         </>
     );
 }

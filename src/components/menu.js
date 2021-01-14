@@ -3,7 +3,7 @@ import Category from './menuCategory'
 
 import { createState, useState } from '@hookstate/core';
 
-const globalState = createState(0)
+// const globalState = createState(0)
 
 
     
@@ -23,10 +23,10 @@ const Menu = () => {
     const state = useState(fetchMenu);
 
     const printNames = (props) => {
-        return props.value.map(n => {
-                console.log(n)
+        return props.value.map(p => {
+                console.log(p)
                 // return <p key={n.id} id={n.id}>{n.name}</p>
-                return <Category product={n}/>
+                return <Category product={p}/>
             })
     }
 
