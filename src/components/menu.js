@@ -24,8 +24,9 @@ const Menu = () => {
 
     const printNames = (props) => {
         return props.value.map(n => {
-                console.log(n.name)
-                return <p key={n.id} id={n.id}>{n.name}</p>
+                console.log(n)
+                // return <p key={n.id} id={n.id}>{n.name}</p>
+                return <Category product={n}/>
             })
     }
 
@@ -43,7 +44,7 @@ const Menu = () => {
 
     return (
         <>
-            <p>Loaded {resourcePath}</p>
+            <p>Loaded Menu:</p>
             <div className="Menu">{printNames(state)}</div>
         </>
     );
