@@ -23,11 +23,7 @@ const Menu = () => {
     const state = useState(fetchMenu);
 
     const printNames = (props) => {
-        return props.value.map(p => {
-                console.log(p)
-                // return <p key={n.id} id={n.id}>{n.name}</p>
-                return <Category product={p}/>
-            })
+        return <Category menu={props}/>
     }
 
     // console.log(state)
