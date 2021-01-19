@@ -2,14 +2,9 @@ import React from "react"
 import Category from './menuCategory'
 
 import { createState, useState } from '@hookstate/core';
-import { useMenuState, resourcePath } from '../state/MenuState.ts';
+import { useMenuState, resourcePath } from '../state/MenuState.js';
 
 // const globalState = createState(0)
-
-
-    
-
-    
 
 const Menu = () => {
 
@@ -19,7 +14,7 @@ const Menu = () => {
         return <Category menu={props}/>
     }
 
-    // console.log(state)
+    
     if (state.promised) {
         return <p>Loading {resourcePath}</p>;
     }
@@ -29,7 +24,6 @@ const Menu = () => {
             <code style={{ color: 'red' }}>{state.error.toString()}</code>
         </p>
     }
-
 
     return (
         <>
