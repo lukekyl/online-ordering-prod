@@ -2,6 +2,7 @@ import React from "react"
 import Category from './menuCategory'
 
 import { createState, useState } from '@hookstate/core';
+import { useMenuState, resourcePath } from '../state/MenuState.ts';
 
 // const globalState = createState(0)
 
@@ -11,16 +12,8 @@ import { createState, useState } from '@hookstate/core';
     
 
 const Menu = () => {
-// Fetch menu from backend. Iterate through all categories and create category component for each.    
-    const resourcePath = 'http://localhost:3001/product';
-    const fetchMenu = () => fetch(resourcePath)
-        .then(response => response.json())
-        .then(products => {
-            console.log(products)
-            return products
-        })
 
-    const state = useState(fetchMenu);
+    const state = useMenuState();
 
     const printNames = (props) => {
         return <Category menu={props}/>
@@ -42,6 +35,7 @@ const Menu = () => {
         <>
             <p>Loaded Menu:</p>
             <div className="Menu">{printNames(state)}</div>
+            
         </>
     );
 }

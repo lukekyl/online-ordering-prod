@@ -9,6 +9,7 @@ const Category = (props) => {
     let menu = props.menu
     let state = useState(menu)
 
+
     const printNames = (menu) => {
         let categories = []
         const print = menu.value.map(product => {
