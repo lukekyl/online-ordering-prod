@@ -9,14 +9,26 @@ const Category = (props) => {
     let menu = props.menu
     let state = useState(menu)
 
+    const printCategory = (category) => {
+        return <h3>{category}</h3>
+    }
 
-    const printNames = (menu) => {
+    const sortCategories = (menu) => {
         let categories = []
         const print = menu.value.map(product => {
-                if (!categories.includes(product.category)){
-                    categories.push(product.category)
+                if (!categories.filter(c => c.name === product.category).length > 0){
+                    let category = {
+                        name: product.category,
+                        product: []
+                    }
+                    category.product.push(product)
+                    categories.push(category)
+                    printCategory(category);
+                } else {
+                    let category = categories.filter(c => c.name === product.category)
+                    category[0].product.push(product)
                 }
-                console.log(product)
+                // console.log(product)
                 return <p key={product.id} id={product.id}>{product.name}</p>
         })
         console.log(categories)
@@ -26,7 +38,7 @@ const Category = (props) => {
 
     return (
         <>
-            {printNames(state)}
+            {sortCategories(state)}
         </>
     );
 }
