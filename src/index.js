@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 // Hookstate added for managing global state in React hook components
 // Dinero will be money display converter, add to App component
 // Tailwind CSS for CSS Framework, with CSS Modules or Styled Components for CSS-in-JS Solution
+// Formik for forms? Hookstate says it replaces the need
 
 ReactDOM.render(
   <React.StrictMode>
