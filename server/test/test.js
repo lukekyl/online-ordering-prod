@@ -1,14 +1,12 @@
 const supertest = require('supertest');
 const server = require('../index.js');
-const request = supertest(server)
+const requestWithSupertest = supertest(server);
 const fake = require('faker');
 
 
 describe('User Endpoints', () => {
-  server.get("/user", async (req, res) => {
-    res.json({ message: "pass!" });
-  });
 
+  
   // it("gets the user endpoint", async done => {
   //   const response = await request.get("/user");
   //   expect(response.status).toBe(200);
@@ -16,14 +14,15 @@ describe('User Endpoints', () => {
   //   done();
   // });
 
-
-   it('gets the user endpoint', async () => {
-    const res = await request
-      .get('/user')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .expect('pass!')
+  it('GET /user should be implemented according to the spec', async () => {
+    const res = await requestWithSupertest.get('/user');
+      expect(res.status).toEqual(200);
+      expect(res.type).toEqual(expect.stringContaining('json'));
+      console.log(res.body)
+      .end(done);
   });
+
+});
 
   // it('should create a new user', async () => {
   //   const res = await request(server)
@@ -38,4 +37,3 @@ describe('User Endpoints', () => {
   //   expect(res.statusCode).toEqual(200)
   //   expect(res.body).toHaveProperty('user')
   // });
-})
