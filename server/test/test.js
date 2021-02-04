@@ -1,7 +1,6 @@
 const supertest = require('supertest');
 const server = require('../index.js');
 const requestWithSupertest = supertest(server);
-const fake = require('faker');
 
 
 describe('User Endpoints', () => {
@@ -14,13 +13,20 @@ describe('User Endpoints', () => {
   //   done();
   // });
 
-  it('GET /user should be implemented according to the spec', async () => {
-    const res = await requestWithSupertest.get('/user');
+  it('GET /user should show all users', async () => {
+    const res = await requestWithSupertest.get('/users');
       expect(res.status).toEqual(200);
       expect(res.type).toEqual(expect.stringContaining('json'));
+      expect(res.body).toHaveProperty('users')
       console.log(res.body)
-      .end(done);
   });
+
+  it('GET /user/:id should show a user', async () => {
+        const res = await requestWithSupertest.get('/users/3')
+        expect(res.statusCode).toEqual(200)
+        expect(res.body).toHaveProperty('user')
+        console.log(res.body)
+    });
 
 });
 
