@@ -4,10 +4,10 @@ const cartControllers = require('../controllers/cartControllers');
 
 const route = express.Router();
 
-route.get('/cart', cartControllers.getCarts);
+route.get('/carts', cartControllers.getCarts);
 
-route.get('/cart/:id', cartControllers.getCart);
+route.get('/carts/:id', cartControllers.getCart);
 
-route.post('/cart', cartControllers.newCart);
+route.post('/carts', cartControllers.newCart);
 
 module.exports = route;
