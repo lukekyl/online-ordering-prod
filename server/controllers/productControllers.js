@@ -21,8 +21,8 @@ exports.newProduct = (req, res, next) =>{
 }
 
 exports.getProducts = (req, res, next) => {
-    model.Product.findAll().then (result => {
-        res.status(200).send(result);
+    model.Product.findAll().then (products => {
+        res.status(200).json({ products });
     }).catch(error=>{
         console.log(error)
         req.status(500).send(error)
