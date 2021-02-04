@@ -3,11 +3,12 @@ import { createState, useState } from '@hookstate/core';
 
 
 
-export const resourcePath = 'http://localhost:3001/product';
+export const resourcePath = 'http://localhost:3001/products';
 const fetchMenu = async () => fetch(resourcePath)
     .then(response => response.json())
     .then(productList => {
-        let menu = sortMenu(productList)
+        console.log(productList)
+        let menu = sortMenu(productList.products)
         
         return menu
     })
