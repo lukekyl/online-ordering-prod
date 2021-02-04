@@ -17,8 +17,8 @@ exports.newUser = (req, res, next) =>{
 }
 
 exports.getUsers = (req, res, next) => {
-    model.User.findAll().then (result => {
-        res.status(200).send(result);
+    model.User.findAll().then (users => {
+        res.status(200).json({ users });
     }).catch(error=>{
         console.log(error)
         req.status(500).send(error)
@@ -29,8 +29,8 @@ exports.getUser = (req, res, next) => {
     const { id } = req.params;
     model.User.findOne({
         where: { id: Number(id) }
-    }).then(result=>{
-        res.status(200).send(result);
+    }).then(user=>{
+        res.status(200).json({ user });
     }).catch(error=>{
         console.log(error)
         req.status(500).send(error)

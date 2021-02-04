@@ -10,8 +10,8 @@ exports.newCart = (req, res, next) =>{
 }
 
 exports.getCarts = (req, res, next) => {
-    model.Cart.findAll().then (result => {
-        res.status(200).send(result);
+    model.Cart.findAll().then (carts => {
+        res.status(200).json({carts});
     }).catch(error=>{
         console.log(error)
         req.status(500).send(error)

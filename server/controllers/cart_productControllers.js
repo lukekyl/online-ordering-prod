@@ -15,8 +15,8 @@ exports.newCart_product = (req, res, next) =>{
 }
 
 exports.getCart_products = (req, res, next) => {
-    model.Cart_product.findAll().then (result => {
-        res.status(200).send(result);
+    model.Cart_product.findAll().then (cart_products => {
+        res.status(200).json(cart_products);
     }).catch(error=>{
         console.log(error)
         req.status(500).send(error)
