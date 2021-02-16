@@ -2,14 +2,16 @@ import React from "react"
 import Product from './menuProduct'
 
 import { useState } from '@hookstate/core';
+import tw from 'twin.macro'
+import styled from 'styled-components'
 
 const Category = (props) => {
 // Takes products from fetch,
 // Creates new category or adds product to existing and prints product card.
     let menu = props.menu
-    let state = useState(menu)
+    const state = useState(menu)
 
-    const printMenu = (menu) => {
+    const printMenu = menu => {
         return menu.map(category=>{
             const printItems = (products) => {
                 return products.map(product => {
