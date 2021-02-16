@@ -4,7 +4,7 @@ import { createState, useState } from '@hookstate/core';
 
 
 export const resourcePath = 'http://localhost:3001/products';
-const fetchMenu = async () => fetch(resourcePath)
+const fetchMenu = async () => await fetch(resourcePath)
     .then(response => response.json())
     .then(productList => {
         console.log(productList)
@@ -15,21 +15,20 @@ const fetchMenu = async () => fetch(resourcePath)
 
 const sortMenu = (menu) => {
         let categories = []
-        const sort = menu.map(product => {
-                if (!categories.filter(c => c.name === product.category).length > 0){
+        menu.map(product => {
+                let name = product.category;
+                if (!categories.filter(c => c.name === name).length > 0){
                     let category = {
-                        name: product.category,
+                        name: name,
                         products: []
                     }
                     category.products.push(product)
                     categories.push(category)
                 } else {
-                    let category = categories.filter(c => c.name === product.category)
+                    let category = categories.filter(c => c.name === name)
                     category[0].products.push(product)
                 }
-                // console.log(product)
         })
-        // console.log(categories)
         return categories
     }    
 
