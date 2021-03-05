@@ -25,9 +25,7 @@ if (state.promised) {
     }
     return (
         <>
-            <p>Loaded Menu:</p>
             <div className="Menu">{printNames(state)}</div>
-            
         </>
     );
 }
