@@ -20,7 +20,7 @@ const Category = (props) => {
             }
             return (
             <>
-            <h3>{category.value.name}</h3>
+            <h3 className="py-2.5 text-lg font-bold">{category.value.name}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {printItems(category.products)}
             </div>    
