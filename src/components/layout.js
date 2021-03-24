@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
 
     const [show, setShow] = useState(false);
     const [product, setProduct] = useState(false);
-    const [deliverables, setDeliverables] = useState(false);
     const [profile, setProfile] = useState(false);
 
     return (
@@ -122,35 +121,7 @@ const Layout = ({ children }) => {
                                                     </div>
                                                     <p className="text-white ml-3 text-lg">Deliverables</p>
                                                 </div>
-                                                <div onClick={() => setDeliverables(!deliverables)}>
-                                                    {deliverables ? (
-                                                        <div className=" ml-4">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-up" width={14} height={14} viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                                <polyline points="6 15 12 9 18 15" />
-                                                            </svg>
-                                                        </div>
-                                                    ) : (
-                                                        <div className="ml-4">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={14} height={14} viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                                <polyline points="6 9 12 15 18 9" />
-                                                            </svg>
-                                                        </div>
-                                                    )}
-                                                </div>
                                             </div>
-                                            {deliverables ? (
-                                                <div>
-                                                    <ul className="my-3">
-                                                        <li className="text-sm text-indigo-500 py-2 px-6">Best Sellers</li>
-                                                        <li className="text-sm text-white hover:text-indigo-500 py-2 px-6">Out of Stock</li>
-                                                        <li className="text-sm text-white hover:text-indigo-500 py-2 px-6">New Products</li>
-                                                    </ul>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
                                         </li>
                                     </a>
                                 </a>
@@ -326,13 +297,11 @@ const Layout = ({ children }) => {
                 <div className="container px-6 mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between">
                     <div>
                         <p className="flex items-center text-gray-300 text-xs">
-                            <span>Portal</span>
+                            <span>Home</span>
                             <span className="mx-2">&gt;</span>
-                            <span>Dashboard</span>
-                            <span className="mx-2">&gt;</span>
-                            <span>KPIs</span>
+                            <span>Menu</span>
                         </p>
-                        <h4 className="text-2xl font-bold leading-tight text-white">Dashboard</h4>
+                        <h4 className="text-2xl font-bold leading-tight text-white">Our Menu</h4>
                     </div>
                     <div className="mt-6 lg:mt-0">
                         <button className="focus:outline-none mr-3 bg-transparent transition duration-150 ease-in-out hover:bg-gray-700 rounded text-white px-5 py-2 text-sm border border-white">Back</button>
@@ -340,56 +309,15 @@ const Layout = ({ children }) => {
                     </div>
                 </div>
             </div>
-            {/* Page title ends */}
-            <div className="bg-gray-200 pb-10">
-                <div className="container px-6 mx-auto">
-                    <div className="relative z-10 w-full">
-                        <div className="w-full -mt-8 h-auto">
-                            <div className="w-full h-auto lg:h-20 mb-6 rounded shadow bg-white">
-                                <div className="lg:hidden bg-white w-full relative">
-                                    <div className="absolute inset-0 m-auto mr-4 z-0 w-6 h-6">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-selector" width={24} height={24} viewBox="0 0 24 24" strokeWidth="1.5" stroke="#A0AEC0" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" />
-                                            <polyline points="8 9 12 5 16 9" />
-                                            <polyline points="16 15 12 19 8 15" />
-                                        </svg>
-                                    </div>
-                                    <select aria-label="Selected tab" className="form-select block w-full p-3 border border-gray-300 rounded text-gray-600 appearance-none bg-transparent relative z-10">
-                                        <option selected className="text-sm text-gray-600">
-                                            Quarterly{" "}
-                                        </option>
-                                        <option className="text-sm text-gray-600">My Profile </option>
-                                        <option className="text-sm text-gray-600">Forecasting </option>
-                                        <option className="text-sm text-gray-600">Ratings </option>
-                                        <option className="text-sm text-gray-600">History Sheet </option>
-                                        <option className="text-sm text-gray-600">Account Settings </option>
-                                    </select>
-                                </div>
-                                <ul className="hidden lg:flex flex-row items-center h-full">
-                                    <li className="ml-4 my-2 lg:my-0 rounded text-base text-gray-800 px-4 py-2 bg-gray-200">Quarterly</li>
-                                    <li className="pl-10 my-0 text-base text-gray-600">My Profile</li>
-                                    <li className="pl-10 my-0 text-base text-gray-600">Forecasting</li>
-                                    <li className="pl-10 my-0 text-base text-gray-600">Ratings</li>
-                                    <li className="pl-10 my-0 text-base text-gray-600">History Sheet</li>
-                                    <li className="pl-10 my-0 text-base text-gray-600">Account Settings</li>
-                                </ul>
-                            </div>
-                            {/* Remove class [ h-64 ] when adding a card block */}
-                            <div className="container mx-auto h-64">
-                                <div className="bg-white w-full h-full rounded shadow">{/* Place your content here */}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div className="App">
+        {children}
+        {/* <div className="App">
             <Header />
             <main className="App-body">
-                {children}
+                
             </main>
             <Footer />
-        </div>
+        </div> */}
         </>
     );
 }
