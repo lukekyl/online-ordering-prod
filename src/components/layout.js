@@ -182,8 +182,8 @@ const Layout = ({ children }) => {
                         </div>
                     </div>
                     <ul className="flex items-center justify-center h-full">
-                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-indigo-500 tracking-normal hidden">Dashboard</li>
-                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white ml-0 xl:ml-10 tracking-normal hidden">Products</li>
+                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-indigo-500 tracking-normal hidden">Home</li>
+                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white ml-0 xl:ml-10 tracking-normal hidden">Menu</li>
                         <li className="mx-0 xl:mx-12 cursor-pointer">
                             <svg aria-label="Home" id="logo" enableBackground="new 0 0 300 300" height={44} viewBox="0 0 300 300" width={43} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                 <g>
@@ -194,8 +194,8 @@ const Layout = ({ children }) => {
                                 </g>
                             </svg>
                         </li>
-                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white mr-10 tracking-normal hidden">Performance</li>
-                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white tracking-normal hidden">Deliverables</li>
+                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white mr-10 tracking-normal hidden">About</li>
+                        <li className="cursor-pointer h-full xl:flex items-center text-sm text-white tracking-normal hidden">Contact</li>
                     </ul>
                     <div aria-haspopup="true" className="cursor-pointer h-full xl:flex items-center justify-end hidden relative">
                         <ul className="p-2 w-40 border-r bg-white absolute rounded z-40 right-0 shadow mt-64 hidden">
@@ -237,7 +237,7 @@ const Layout = ({ children }) => {
                             </svg>
                         </div>
                         {profile ? (
-                            <ul className="p-2 w-64 border-r bg-white absolute top-0 -ml-2 rounded right-0 shadow mt-14  ">
+                            <ul className="p-2 w-64 border-r bg-white absolute top-0 -ml-2 rounded right-0 shadow mt-14">
                                 <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
                                     <div className="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -305,7 +305,7 @@ const Layout = ({ children }) => {
                     </div>
                     <div className="mt-6 lg:mt-0">
                         <button className="focus:outline-none mr-3 bg-transparent transition duration-150 ease-in-out hover:bg-gray-700 rounded text-white px-5 py-2 text-sm border border-white">Back</button>
-                        <button className="focus:outline-none transition duration-150 ease-in-out hover:bg-gray-200 border bg-white rounded text-indigo-700 px-8 py-2 text-sm">Edit Profile</button>
+                        <button className="focus:outline-none transition duration-150 ease-in-out hover:bg-gray-200 border bg-white rounded text-indigo-700 px-8 py-2 text-sm">Check Out</button>
                     </div>
                 </div>
             </div>
