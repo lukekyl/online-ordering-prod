@@ -6,7 +6,7 @@ const Product = ({product}) => {
     // Create product card for menu.
     return (
         <>
-            <div key={product.value.id} className="flex flex-col inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl hover:shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xs">
+            <div key={product.value.id} className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl hover:shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xs">
                 <div className="bg-local bg-center bg-cover h-60" style={{backgroundImage: `url(${product.value.image_url})`}}></div>
                 <div className="flex-grow bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">    
                     <p className="capitalize"><strong>{product.value.name}</strong></p>
