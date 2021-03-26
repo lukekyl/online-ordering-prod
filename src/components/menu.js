@@ -9,7 +9,7 @@ const Menu = () => {
 
     const state = useMenuState();
 
-    const printNames = (props) => {
+    const printMenu = (props) => {
         return <Category menu={props}/>
     }
     console.log(state)
@@ -59,7 +59,7 @@ if (state.promised) {
                             </div>
                             {/* Remove class [ h-64 ] when adding a card block */}
                             <div className="container mx-auto">
-                                <div className="bg-white w-full h-full rounded shadow p-8 xs:flex flex-col items-center justify-center">{printNames(state)}</div>
+                                <div className="bg-white w-full h-full rounded shadow p-8 xs:flex flex-col items-center justify-center">{printMenu(state)}</div>
                             </div>
                         </div>
                     </div>
