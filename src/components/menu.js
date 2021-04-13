@@ -1,6 +1,8 @@
 import React from "react"
 import Category from './menuCategory'
 import { useState } from '@hookstate/core';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useMenuState, resourcePath } from '../state/MenuState.js';
 
 // const globalState = createState(0)
@@ -16,11 +18,12 @@ const Menu = () => {
 
     const printCategoryTabs = (className) => {
         return state.value.map(category=>{
-            return <option className={className}>{category.name} </option>
+            let url = `#${category.name}`
+            return <HashLink smooth to={url}><option key={category.id} className={className}>{category.name}</option></HashLink>
         })
     }
     
-if (state.promised) {
+    if (state.promised) {
         return <p>Loading {resourcePath}</p>;
     }
 
@@ -46,20 +49,24 @@ if (state.promised) {
                                         </svg>
                                     </div>
                                     <select aria-label="Selected tab" className="form-select block w-full p-3 border border-gray-300 rounded text-gray-600 appearance-none bg-transparent relative z-10">
+                                        <HashLink smooth to="#top">
                                         <option selected className="text-sm text-gray-600">
-                                            Full Menu{" "}
+                                            Full Menu 
                                         </option>
+                                        </HashLink>
                                         {printCategoryTabs("text-sm text-gray-600")}
                                     </select>
                                 </div>
                                 <ul className="hidden lg:flex flex-row items-center h-full">
-                                    <li className="ml-4 my-2 lg:my-0 rounded text-base text-gray-800 px-4 py-2 bg-gray-200">Full Menu </li>
+                                    <li className="ml-4 my-2 lg:my-0 rounded text-base text-gray-800 px-4 py-2 bg-gray-200">
+                                    <HashLink smooth to="#Top">Full Menu</HashLink>
+                                    </li>
                                     {printCategoryTabs("pl-10 my-0 text-base text-gray-600")}
                                 </ul>
                             </div>
                             {/* Remove class [ h-64 ] when adding a card block */}
                             <div className="container mx-auto">
-                                <div className="bg-white w-full h-full rounded shadow p-8 xs:flex flex-col items-center justify-center">{printMenu(state)}</div>
+                                <div className="bg-white w-full h-full rounded shadow p-8 xs:flex flex-col items-center justify-center" id="Top">{printMenu(state)}</div>
                             </div>
                         </div>
                     </div>
