@@ -4,6 +4,7 @@ import '@hookstate/devtools'
 import './styles/App.css';
 import Index from './pages/index.js';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 // Hookstate added for managing global state in React hook components
 // Dinero will be money display converter, add to App component
@@ -12,7 +13,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <BrowserRouter>
+      <Index />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
